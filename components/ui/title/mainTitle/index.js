@@ -49,7 +49,7 @@ export default function MainTitle() {
   useEffect(() => {
     // Auto-rotate
     globeEl.current.controls().autoRotate = true;
-    globeEl.current.controls().autoRotateSpeed = -2;
+    globeEl.current.controls().autoRotateSpeed = 2;
   }, []);
   return (
     <MainTitleContainer>
@@ -63,10 +63,9 @@ export default function MainTitle() {
         autoRotate={true}
         globeImageUrl="./tierra.jpg"
         backgroundColor="rgba(250,245,239,0)"
-        bumpImageUrl="/images/earth-topology.png"
         showAtmosphere={true}
         atmosphereColor="gray"
-        atmosphereAltitude="0"
+        atmosphereAltitude={0}
         rendererConfig={{ antialias: true, alpha: true }}
         pointAltitude={1}
       />
