@@ -8,6 +8,18 @@ function MyApp({ Component, pageProps }) {
         <title>Tesis - Facundo Brahim</title>
         <meta name="description" content="Tesis - Facundo Brahim" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/Fonts/d-din/D-DIN.woff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/Fonts/d-din/D-DIN-Bold.woff"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
       <Component {...pageProps} />
       <GlobalStyles />

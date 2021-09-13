@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import "@google/model-viewer";
 
 let Globe = () => null;
 if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
 
-const MainTitleContainer = styled.section`
+const MainTitleContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  align-content: center;
 
   canvas {
     margin: 0 auto !important;
@@ -18,30 +20,49 @@ const MainTitleContainer = styled.section`
     height: auto !important;
     pointer-events: none !important;
   }
+
+  model-viewer {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    --poster-color: transparent;
+    position: absolute;
+  }
 `;
 
 const H1 = styled.h1`
   width: 100%;
   text-align: center;
-  color: #333;
+  color: #fff;
   font-size: 3em;
-  font-family: "Playfair Display", serif;
-  letter-spacing: 1px;
-  line-height: 140%;
-  font-weight: 700;
-  margin: 0px 0px 0px 0px;
+  font-family: "D-DIN-Bold", sans-serif;
+  letter-spacing: 0px;
+  font-weight: normal;
+  margin: -40px 0px 0px 0px;
 `;
 
 const H2 = styled.h2`
   width: 50%;
   text-align: center;
-  color: #333;
-  font-size: 1em;
-  font-family: "Rubik", sans-serif;
-  letter-spacing: 1px;
-  line-height: 150%;
+  color: #fff;
+  font-size: 0.9em;
+  font-family: "D-DIN", sans-serif;
+  letter-spacing: 0px;
+  line-height: 180%;
   font-weight: 100;
   margin: 30px 0px 0px 0px;
+  text-transform: uppercase;
+`;
+
+const Name = styled.p`
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 0.9em;
+  font-family: "D-DIN", sans-serif;
+  letter-spacing: 0px;
+  font-weight: 100;
+  margin: 25px 0px 0px 0px;
 `;
 
 export default function MainTitle() {
@@ -49,26 +70,40 @@ export default function MainTitle() {
   useEffect(() => {
     // Auto-rotate
     globeEl.current.controls().autoRotate = true;
-    globeEl.current.controls().autoRotateSpeed = 2;
+    globeEl.current.controls().autoRotateSpeed = -2;
   }, []);
   return (
     <MainTitleContainer>
-      <H1>A Pale Blue Dot</H1>
-      <H2>
-        Multimedia y tecnología aplicada para la transformación participativa
-        del Museo Argentino de Ciencias Naturales
-      </H2>
       <Globe
         ref={globeEl}
         autoRotate={true}
         globeImageUrl="./tierra.jpg"
-        backgroundColor="rgba(250,245,239,0)"
+        backgroundColor="rgba(0,0,0,0)"
         showAtmosphere={true}
         atmosphereColor="gray"
-        atmosphereAltitude={0}
+        atmosphereAltitude={0.1}
         rendererConfig={{ antialias: true, alpha: true }}
         pointAltitude={1}
       />
+      <H1 className="topIn">A PALE BLUE DOT</H1>
+      <H2 className="topInDelay">
+        Multimedia y tecnología aplicada para la transformación participativa
+        del Museo Argentino de Ciencias Naturales
+      </H2>
+      <Name className="topInDelay">Facundo E. Brahim</Name>
+      <model-viewer
+        id="reveal"
+        loading="eager"
+        camera-controls
+        auto-rotate
+        ios-src=""
+        src="./model/scene.gltf"
+        alt="Voyager 1 3D Model"
+        slot="progress-bar"
+        className="fadeIn"
+        shadow-intensity="1"
+        ar
+      ></model-viewer>
     </MainTitleContainer>
   );
 }
