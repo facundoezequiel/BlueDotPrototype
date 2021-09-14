@@ -40,7 +40,7 @@ const PerseveranceDataContainer = styled.section`
   }
 
   #titleDiv {
-    height: calc(100% - 41px);
+    height: calc(100% - 51px);
     display: flex;
     justify-content: center;
     align-content: center;
