@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import "@google/model-viewer";
 
 let Globe = () => null;
 if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
@@ -19,14 +18,6 @@ const MainTitleContainer = styled.div`
     width: 1200px !important;
     height: auto !important;
     pointer-events: none !important;
-  }
-
-  model-viewer {
-    width: 100vw;
-    height: 100vh;
-    background-color: transparent;
-    --poster-color: transparent;
-    position: absolute;
   }
 `;
 
@@ -91,19 +82,6 @@ export default function MainTitle() {
         del Museo Argentino de Ciencias Naturales
       </H2>
       <Name className="topInDelay">Facundo E. Brahim</Name>
-      <model-viewer
-        id="reveal"
-        loading="eager"
-        camera-controls
-        auto-rotate
-        ios-src=""
-        src="./model/scene.gltf"
-        alt="Voyager 1 3D Model"
-        slot="progress-bar"
-        className="fadeIn"
-        shadow-intensity="1"
-        ar
-      ></model-viewer>
     </MainTitleContainer>
   );
 }

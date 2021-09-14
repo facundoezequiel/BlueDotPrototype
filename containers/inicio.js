@@ -1,28 +1,25 @@
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 
-const MainTitle = dynamic(() => import("../components/ui/title/mainTitle"), {
+const Voyager3D = dynamic(() => import("../components/modelos3D/voyager"), {
   ssr: false,
 });
 
+const Perseverance3D = dynamic(
+  () => import("../components/modelos3D/perseverance"),
+  {
+    ssr: false,
+  }
+);
+
 const InicioContainer = styled.section`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TextContainer = styled.div`
-  width: 35%;
-  margin: 0px 0px 0px 0px;
 `;
 
 export default function Inicio() {
   return (
     <InicioContainer>
-      <TextContainer>
-        <MainTitle></MainTitle>
-      </TextContainer>
+      <Perseverance3D></Perseverance3D>
     </InicioContainer>
   );
 }

@@ -39,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 
    // TopIn Animation
 
-   .topIn {
+  .topIn {
     animation-name: topIn;
     animation-duration: 0.6s;
     animation-iteration-count: initial;
@@ -99,6 +99,22 @@ export const GlobalStyles = createGlobalStyle`
     }
     to {
       opacity: 100%;
+    }
+  }
+
+  .leftIn {
+    animation-name: leftIn;
+    animation-duration: 2s;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out;
+  }
+  
+  @keyframes leftIn {
+    from {
+      transform: translate(-70px, 0px);
+    }
+    to {
+      transform: translate(0px, 0px);
     }
   }
 `;
