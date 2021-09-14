@@ -2,7 +2,7 @@ import styled from "styled-components";
 import "@google/model-viewer";
 
 const Perseverance3DContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -10,7 +10,6 @@ const Perseverance3DContainer = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: fixed;
   z-index: 1;
 
   .modelLoading {
@@ -33,7 +32,7 @@ const Perseverance3DContainer = styled.div`
   }
 
   model-viewer {
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: transparent;
     --poster-color: transparent;

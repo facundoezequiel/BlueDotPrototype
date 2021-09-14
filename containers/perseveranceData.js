@@ -11,6 +11,7 @@ const Perseverance3D = dynamic(
 const PerseveranceDataContainer = styled.section`
   width: 100%;
   display: flex;
+  justify-content: space-between;
 
   #titleAside {
     width: 50px;
@@ -81,6 +82,18 @@ const PerseveranceDataContainer = styled.section`
   }
 `;
 
+const ModelViwer = styled.div`
+  width: 50%;
+  display: flex;
+`;
+
+const Information = styled.div`
+  width: calc(50% - 52px);
+  border-right: 1px #333 solid;
+  display: flex;
+  color: white;
+`;
+
 export default function PerseveranceData() {
   return (
     <PerseveranceDataContainer>
@@ -98,7 +111,14 @@ export default function PerseveranceData() {
           </div>
         </div>
       </aside>
-      <Perseverance3D></Perseverance3D>
+      <Information>
+        <div>
+          <img src="" />
+        </div>
+      </Information>
+      <ModelViwer>
+        <Perseverance3D></Perseverance3D>
+      </ModelViwer>
     </PerseveranceDataContainer>
   );
 }
