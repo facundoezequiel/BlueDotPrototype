@@ -83,7 +83,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  #reveal {
+  #reveal, #iframeApolloContainer {
     animation-name: fadeIn;
     animation-duration: 4s;
     animation-iteration-count: initial;
@@ -104,17 +104,33 @@ export const GlobalStyles = createGlobalStyle`
 
   .leftIn {
     animation-name: leftIn;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: initial;
     animation-timing-function: ease-out;
   }
   
   @keyframes leftIn {
     from {
-      transform: translate(-70px, 0px);
+      transform: translate(-70px, 0px) rotate(180deg);
     }
     to {
-      transform: translate(0px, 0px);
+      transform: translate(0px, 0px)  rotate(180deg);
+    }
+  }
+
+  .opacityIn {
+    animation-name: opacityIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out;
+  }
+  
+  @keyframes opacityIn {
+    from {
+      opacity: 0%;
+    }
+    to {
+      opacity: 100%;
     }
   }
 `;

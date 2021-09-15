@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 
+// Dynamic import for model component
 const Perseverance3D = dynamic(
   () => import("../components/modelos3D/perseverance"),
   {
@@ -8,6 +9,7 @@ const Perseverance3D = dynamic(
   }
 );
 
+// Page Container
 const PerseveranceDataContainer = styled.section`
   width: 100%;
   display: flex;
@@ -82,14 +84,25 @@ const PerseveranceDataContainer = styled.section`
   }
 `;
 
-const ModelViwer = styled.div`
+// Model Viwer section
+const ModelViwer = styled.section`
   width: 50%;
   display: flex;
 `;
 
-const Information = styled.div`
+// Information section
+const Information = styled.section`
   width: calc(50% - 52px);
   border-right: 1px #333 solid;
+  display: flex;
+  color: white;
+`;
+
+// Logo Blue Dot Container
+const LogoContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px #333 solid;
   display: flex;
   color: white;
 `;
@@ -97,14 +110,14 @@ const Information = styled.div`
 export default function PerseveranceData() {
   return (
     <PerseveranceDataContainer>
-      <aside id="titleAside" className="leftIn">
+      <aside id="titleAside">
         <div id="backButton">
-          <img src="./icons/back.svg" />
+          <img src="./icons/back.svg" className="opacityIn" />
         </div>
         <div id="titleDiv">
           <div>
-            <h1 className="selectionNone">Perseverance</h1>
-            <p>
+            <h1 className="leftIn">Perseverance</h1>
+            <p className="leftIn">
               Museo Argentino de Ciencias Naturales<br></br>Bernardino Rivadavia
               CONICET
             </p>
@@ -112,9 +125,10 @@ export default function PerseveranceData() {
         </div>
       </aside>
       <Information>
-        <div>
+        <LogoContainer>
+          hOLA
           <img src="" />
-        </div>
+        </LogoContainer>
       </Information>
       <ModelViwer>
         <Perseverance3D></Perseverance3D>

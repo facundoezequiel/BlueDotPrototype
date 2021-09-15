@@ -2,7 +2,7 @@ import styled from "styled-components";
 import "@google/model-viewer";
 
 const Voyager3DContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -10,7 +10,6 @@ const Voyager3DContainer = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: fixed;
   z-index: 1;
 
   .modelLoading {
@@ -22,6 +21,9 @@ const Voyager3DContainer = styled.div`
 
   @keyframes loadingFadeIn {
     from {
+      opacity: 0%;
+    }
+    25% {
       opacity: 100%;
     }
     85% {
@@ -33,7 +35,7 @@ const Voyager3DContainer = styled.div`
   }
 
   model-viewer {
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: transparent;
     --poster-color: transparent;
@@ -43,8 +45,6 @@ const Voyager3DContainer = styled.div`
 
 const Loading = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -53,10 +53,30 @@ const Loading = styled.div`
   color: white;
 
   p {
+    text-align: center;
     font-size: 1em;
     color: #fff;
     font-family: "D-DIN-Bold", sans-serif;
     opacity: 0%;
+  }
+`;
+
+const Credits = styled.div`
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 2 !important;
+
+  p {
+    text-align: center;
+    font-size: 0.8em;
+    margin: 0;
+    color: #666;
+    font-family: "D-DIN", sans-serif;
   }
 `;
 
@@ -79,6 +99,9 @@ export default function Voyager3D() {
         shadow-intensity="1"
         ar
       ></model-viewer>
+      <Credits>
+        <p id="reveal">Desarrollado por la Nasa</p>
+      </Credits>
     </Voyager3DContainer>
   );
 }

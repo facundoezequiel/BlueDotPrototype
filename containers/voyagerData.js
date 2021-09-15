@@ -8,6 +8,7 @@ const Voyager3D = dynamic(() => import("../components/modelos3D/voyager"), {
 const VoyagerDataContainer = styled.section`
   width: 100%;
   display: flex;
+  justify-content: space-between;
 
   #titleAside {
     width: 50px;
@@ -26,6 +27,7 @@ const VoyagerDataContainer = styled.section`
     align-items: center;
     border-bottom: 1px #333 solid;
     color: white;
+    cursor: pointer;
   }
 
   #backButton img {
@@ -77,24 +79,55 @@ const VoyagerDataContainer = styled.section`
   }
 `;
 
+// Model Viwer section
+const ModelViwer = styled.section`
+  width: 50%;
+  display: flex;
+`;
+
+// Information section
+const Information = styled.section`
+  width: calc(50% - 52px);
+  border-right: 1px #333 solid;
+  display: flex;
+  color: white;
+`;
+
+// Logo Blue Dot Container
+const LogoContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px #333 solid;
+  display: flex;
+  color: white;
+`;
+
 export default function VoyagerData() {
   return (
     <VoyagerDataContainer>
-      <aside id="titleAside" className="leftIn">
+      <aside id="titleAside">
         <div id="backButton">
-          <img src="./icons/back.svg" />
+          <img src="./icons/back.svg" className="opacityIn" />
         </div>
         <div id="titleDiv">
           <div>
-            <h1 className="selectionNone">Voyager One</h1>
-            <p>
+            <h1 className="leftIn">Voyager One</h1>
+            <p className="leftIn">
               Museo Argentino de Ciencias Naturales<br></br>Bernardino Rivadavia
               CONICET
             </p>
           </div>
         </div>
       </aside>
-      <Voyager3D></Voyager3D>
+      <Information>
+        <LogoContainer>
+          hOLA
+          <img src="" />
+        </LogoContainer>
+      </Information>
+      <ModelViwer>
+        <Voyager3D></Voyager3D>
+      </ModelViwer>
     </VoyagerDataContainer>
   );
 }

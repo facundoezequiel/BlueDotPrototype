@@ -21,6 +21,9 @@ const Perseverance3DContainer = styled.div`
 
   @keyframes loadingFadeIn {
     from {
+      opacity: 0%;
+    }
+    25% {
       opacity: 100%;
     }
     85% {
@@ -42,8 +45,6 @@ const Perseverance3DContainer = styled.div`
 
 const Loading = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -52,10 +53,30 @@ const Loading = styled.div`
   color: white;
 
   p {
+    text-align: center;
     font-size: 1em;
     color: #fff;
     font-family: "D-DIN-Bold", sans-serif;
     opacity: 0%;
+  }
+`;
+
+const Credits = styled.div`
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 2 !important;
+
+  p {
+    text-align: center;
+    font-size: 0.8em;
+    margin: 0;
+    color: #666;
+    font-family: "D-DIN", sans-serif;
   }
 `;
 
@@ -78,6 +99,9 @@ export default function Perseverance3D() {
         shadow-intensity="1"
         ar
       ></model-viewer>
+      <Credits>
+        <p id="reveal">Desarrollado por la Nasa</p>
+      </Credits>
     </Perseverance3DContainer>
   );
 }
