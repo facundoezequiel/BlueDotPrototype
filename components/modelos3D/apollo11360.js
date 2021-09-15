@@ -88,7 +88,7 @@ export default function Apollo3603D() {
       <Loading>
         <p className="modelLoading">LEYENDO INFORMACIÓN</p>
       </Loading>
-      <div class="sketchfab-embed-wrapper" id="iframeApolloContainer">
+      <div clasName="sketchfab-embed-wrapper" id="iframeApolloContainer">
         {" "}
         <iframe
           title="Apollo Command Module Interior Sphere Projection"
