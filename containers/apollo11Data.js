@@ -108,6 +108,7 @@ export default class Apollo11Data extends React.Component {
       model2: <ApoloInterior3D />,
       model3: <ApoloExclusa3D />,
       model4: <Apollo113603D />,
+      model5: <Apollo113603D />,
     };
     return models[currentMode];
   }
