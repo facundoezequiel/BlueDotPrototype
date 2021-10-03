@@ -3,14 +3,11 @@ import "@google/model-viewer";
 
 const Apollo113DContainer = styled.div`
   width: 100%;
-  height: calc(100% - 51px);
+  height: calc(100vh - 55px);
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   align-content: center;
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
 
   .modelLoading {
     animation-name: loadingFadeIn;
@@ -35,11 +32,10 @@ const Apollo113DContainer = styled.div`
   }
 
   model-viewer {
-    width: 50%;
-    height: calc(100% - 51px);
+    width: 100%;
+    height: 100%;
     background-color: transparent;
     --poster-color: transparent;
-    position: absolute;
   }
 `;
 
@@ -49,7 +45,7 @@ const Loading = styled.div`
   align-items: center;
   align-content: center;
   position: fixed;
-  z-index: 1;
+  z-index: 0;
   color: white;
 
   p {

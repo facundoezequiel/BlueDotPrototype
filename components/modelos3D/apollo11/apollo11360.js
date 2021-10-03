@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Apollo113603DContainer = styled.div`
   width: 100%;
-  height: calc(100% - 51px);
+  height: calc(100vh - 55px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

@@ -1,14 +1,19 @@
+import React from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
+import ChangeModelMenu from "../components/modelos3D/apollo11/changeModelMenu/changeModelMenu";
 
 // Dynamic import for model component
-const Apollo113D = dynamic(() => import("../components/modelos3D/apollo11"), {
-  ssr: false,
-});
+const Apollo113D = dynamic(
+  () => import("../components/modelos3D/apollo11/apollo11"),
+  {
+    ssr: false,
+  }
+);
 
 // Dynamic import for model component
 const Apollo113603D = dynamic(
-  () => import("../components/modelos3D/apollo11360"),
+  () => import("../components/modelos3D/apollo11/apollo11360"),
   {
     ssr: false,
   }
@@ -17,92 +22,49 @@ const Apollo113603D = dynamic(
 // Page Container
 const Apollo11DataContainer = styled.section`
   width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+`;
 
-  #titleAside {
-    width: 50px;
-    height: 100vh;
-    background-color: #000;
-    border-right: 1px #333 solid;
-    z-index: 5;
-  }
+// Header
+const Header = styled.header`
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  background-color: #111;
 
-  #backButton {
-    width: 100%;
-    height: 50px;
+  // Menu Button Container
+  #menuButtonContainer {
+    height: 30px;
+    padding: 0px 25px 0px 25px;
+    margin-right: 20px;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    border-bottom: 1px #333 solid;
-    color: white;
-    cursor: pointer;
-  }
-
-  #backButton img {
-    display: block;
-    width: 45%;
-    margin: 0 auto;
-    height: auto;
-  }
-
-  #titleDiv {
-    height: calc(100% - 51px);
-    display: flex;
-    justify-content: center;
     align-content: center;
-    align-items: center;
-  }
-
-  #titleDiv div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  #titleDiv h1 {
-    margin: 0 auto;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
-    margin-top: 20px;
-    color: #fff;
-    font-size: 1.5em;
-    text-align: right;
-    font-family: "D-DIN-Bold", sans-serif;
-    text-transform: uppercase;
-    line-height: 0%;
-  }
-
-  #titleDiv p {
-    line-height: 140%;
-    margin: 0 auto;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
-    margin-bottom: 20px;
-    color: #666;
-    font-size: 0.9em;
-    text-align: left;
-    font-family: "D-DIN", sans-serif;
+    background-color: #262626;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
   }
 `;
 
 // Information section
 const Information = styled.section`
-  width: calc(50% - 52px);
-  border-right: 1px #333 solid;
+  width: 50%;
+  background-color: #171717;
   display: flex;
-  color: white;
-`;
-
-// Logo Blue Dot Container
-const LogoContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px #333 solid;
-  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
   color: white;
 `;
 
@@ -110,102 +72,44 @@ const LogoContainer = styled.div`
 const ModelViwer = styled.section`
   width: 50%;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
 `;
 
-// Buttons Menu Container
-const ButtonsMenuContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px #333 solid;
-  display: flex;
-  justify-content: space-between;
-
-  #modelButtonsContainer {
-    width: auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
+export default class Apollo11Data extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      response: "",
+      currentMode: "model1",
+    };
   }
 
-  #modelButtonsContainer button {
-    width: auto;
-    padding: 0px 30px 0px 30px;
-    height: 100%;
-    background-color: #000;
-    border: 0;
-    border-right: 1px #333 solid;
-    transition: 0.2s;
-    text-transform: uppercase;
+  getModels(currentMode) {
+    const models = {
+      model1: <Apollo113D />,
+      model2: <Apollo113603D />,
+      model3: <Apollo113603D />,
+      model4: <Apollo113603D />,
+    };
+    return models[currentMode];
   }
 
-  #modelButtonsContainer button p {
-    color: #fff;
-    font-size: 0.9em;
-    text-align: center;
-    font-family: "D-DIN", sans-serif;
-    text-rendering: optimizeLegibility;
-  }
+  toggleModels = (currentMode) => {
+    this.setState({ currentMode });
+  };
 
-  #buttonActive {
-    background-color: #222 !important;
+  render() {
+    return (
+      <Apollo11DataContainer>
+        <Header>
+          <ChangeModelMenu toggleModels={this.toggleModels}></ChangeModelMenu>
+          <div id="menuButtonContainer">Menu</div>
+        </Header>
+        <Information>hola</Information>
+        <ModelViwer>{this.getModels(this.state.currentMode)}</ModelViwer>
+      </Apollo11DataContainer>
+    );
   }
-
-  #modelButtonsContainer button:hover {
-    background-color: #fff !important;
-    cursor: pointer;
-  }
-
-  #modelButtonsContainer button:hover > p {
-    color: #000;
-  }
-`;
-
-export default function Apollo11Data() {
-  return (
-    <Apollo11DataContainer>
-      <aside id="titleAside">
-        <div id="backButton">
-          <img src="./icons/back.svg" className="opacityIn" />
-        </div>
-        <div id="titleDiv">
-          <div>
-            <h1 className="opacityIn">Apollo 11</h1>
-            <p className="opacityIn">
-              Museo Argentino de Ciencias Naturales<br></br>Bernardino Rivadavia
-              CONICET
-            </p>
-          </div>
-        </div>
-      </aside>
-      <Information>
-        <LogoContainer>
-          <img src="" />
-        </LogoContainer>
-      </Information>
-      <ModelViwer>
-        <ButtonsMenuContainer>
-          <div id="modelButtonsContainer">
-            <button id="buttonActive">
-              <p className="opacityIn">Exterior</p>
-            </button>
-            <button>
-              <p className="opacityIn">Interior</p>
-            </button>
-            <button>
-              <p className="opacityIn">Exclusa</p>
-            </button>
-            <button>
-              <p className="opacityIn">360</p>
-            </button>
-          </div>
-          <div id="menuButtonContainer">
-            <p>Menu</p>
-          </div>
-        </ButtonsMenuContainer>
-        <Apollo113D></Apollo113D>
-      </ModelViwer>
-    </Apollo11DataContainer>
-  );
 }
