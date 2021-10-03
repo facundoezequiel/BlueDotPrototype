@@ -12,6 +12,22 @@ const Apollo113D = dynamic(
 );
 
 // Dynamic import for model component
+const ApoloInterior3D = dynamic(
+  () => import("../components/modelos3D/apollo11/apolo11Interior"),
+  {
+    ssr: false,
+  }
+);
+
+// Dynamic import for model component
+const ApoloExclusa3D = dynamic(
+  () => import("../components/modelos3D/apollo11/apolo11Exclusa"),
+  {
+    ssr: false,
+  }
+);
+
+// Dynamic import for model component
 const Apollo113603D = dynamic(
   () => import("../components/modelos3D/apollo11/apollo11360"),
   {
@@ -89,8 +105,8 @@ export default class Apollo11Data extends React.Component {
   getModels(currentMode) {
     const models = {
       model1: <Apollo113D />,
-      model2: <Apollo113603D />,
-      model3: <Apollo113603D />,
+      model2: <ApoloInterior3D />,
+      model3: <ApoloExclusa3D />,
       model4: <Apollo113603D />,
     };
     return models[currentMode];

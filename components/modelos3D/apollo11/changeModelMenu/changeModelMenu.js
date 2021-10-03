@@ -79,6 +79,7 @@ export default class ChangeModelMenu extends React.Component {
           eventKey={1}
           title="Model1"
           onClick={() => this.handleSelect(1, "model1")}
+          id="buttonActive"
         >
           <p>Exterior</p>
         </button>
@@ -102,6 +103,13 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(4, "model4")}
         >
           <p>360</p>
+        </button>
+        <button
+          eventKey={4}
+          title="Model4"
+          onClick={() => this.handleSelect(4, "model4")}
+        >
+          <p>Galería</p>
         </button>
       </ChangeModelNav>
     );
