@@ -89,7 +89,6 @@ export default function Apollo3603D() {
         <p className="modelLoading">LEYENDO INFORMACIÓN</p>
       </Loading>
       <div clasName="sketchfab-embed-wrapper" id="iframeApolloContainer">
-        {" "}
         <iframe
           title="Apollo Command Module Interior Sphere Projection"
           frameborder="0"
@@ -102,9 +101,7 @@ export default function Apollo3603D() {
           execution-while-not-rendered
           web-share
           src="https://sketchfab.com/models/b64f6007aa754cd296f3417a3a6f57ee/embed?autospin=0&autostart=1&camera=0&preload=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0"
-        >
-          {" "}
-        </iframe>{" "}
+        ></iframe>
       </div>
       <Credits>
         <p id="reveal">Desarrollado por The Smithsonian Institute</p>

@@ -35,6 +35,14 @@ const Apollo113603D = dynamic(
   }
 );
 
+// Dynamic import for model component
+const Apolo11Casco3D = dynamic(
+  () => import("../components/modelos3D/apollo11/apolo11Casco"),
+  {
+    ssr: false,
+  }
+);
+
 // Page Container
 const Apollo11DataContainer = styled.section`
   width: 100%;
@@ -108,7 +116,9 @@ export default class Apollo11Data extends React.Component {
       model2: <ApoloInterior3D />,
       model3: <ApoloExclusa3D />,
       model4: <Apollo113603D />,
-      model5: <Apollo113603D />,
+      model5: <Apolo11Casco3D />,
+      model6: <Apollo113603D />,
+      model7: <Apollo113603D />,
     };
     return models[currentMode];
   }

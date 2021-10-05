@@ -97,6 +97,30 @@ const ModelButton = styled.button`
       }
     `};
 
+  ${(props) =>
+    props.active === 6 &&
+    css`
+      :nth-child(6) {
+        animation: changeBackground 0.2s ease-in;
+        background-color: #6d6d6d;
+        :hover > p {
+          color: #fff !important;
+        }
+      }
+    `};
+
+  ${(props) =>
+    props.active === 7 &&
+    css`
+      :nth-child(7) {
+        animation: changeBackground 0.2s ease-in;
+        background-color: #6d6d6d;
+        :hover > p {
+          color: #fff !important;
+        }
+      }
+    `};
+
   // Hover Buttons Text Color
   :hover {
     cursor: pointer;
@@ -131,7 +155,6 @@ export default class ChangeModelMenu extends React.Component {
     this.props.toggleModels(modelsCategory);
     this.setState({ key });
     number = key;
-    console.log(number);
   }
 
   render() {
@@ -170,9 +193,25 @@ export default class ChangeModelMenu extends React.Component {
           <p>360</p>
         </ModelButton>
         <ModelButton
-          eventKey={4}
+          eventKey={5}
           title="Model5"
           onClick={() => this.handleSelect(5, "model5")}
+          active={number}
+        >
+          <p>Casco</p>
+        </ModelButton>
+        <ModelButton
+          eventKey={6}
+          title="Model6"
+          onClick={() => this.handleSelect(6, "model6")}
+          active={number}
+        >
+          <p>Guante</p>
+        </ModelButton>
+        <ModelButton
+          eventKey={7}
+          title="Model7"
+          onClick={() => this.handleSelect(7, "model7")}
           active={number}
         >
           <p>Galería</p>
