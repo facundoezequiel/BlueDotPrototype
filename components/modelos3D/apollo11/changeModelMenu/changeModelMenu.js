@@ -166,7 +166,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(1, "model1")}
           active={number}
         >
-          <p>Exterior</p>
+          <p>Luna</p>
         </ModelButton>
         <ModelButton
           eventKey={2}
@@ -174,7 +174,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(2, "model2")}
           active={number}
         >
-          <p>Interior</p>
+          <p>Módulo</p>
         </ModelButton>
         <ModelButton
           eventKey={3}
@@ -182,7 +182,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(3, "model3")}
           active={number}
         >
-          <p>Exclusa</p>
+          <p>Interior</p>
         </ModelButton>
         <ModelButton
           eventKey={4}
@@ -190,7 +190,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(4, "model4")}
           active={number}
         >
-          <p>360</p>
+          <p>Exclusa</p>
         </ModelButton>
         <ModelButton
           eventKey={5}
@@ -198,7 +198,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(5, "model5")}
           active={number}
         >
-          <p>Casco</p>
+          <p>360</p>
         </ModelButton>
         <ModelButton
           eventKey={6}
@@ -206,7 +206,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(6, "model6")}
           active={number}
         >
-          <p>Guante</p>
+          <p>Casco</p>
         </ModelButton>
         <ModelButton
           eventKey={7}
@@ -214,7 +214,7 @@ export default class ChangeModelMenu extends React.Component {
           onClick={() => this.handleSelect(7, "model7")}
           active={number}
         >
-          <p>Galería</p>
+          <p>Guante</p>
         </ModelButton>
       </ChangeModelNav>
     );

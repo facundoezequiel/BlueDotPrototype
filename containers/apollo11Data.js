@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 import ChangeModelMenu from "../components/modelos3D/apollo11/changeModelMenu/changeModelMenu";
+
+// Dynamic import for model component
+const Moon3D = dynamic(() => import("../components/modelos3D/apollo11/moon"), {
+  ssr: false,
+});
 
 // Dynamic import for model component
 const Apollo113D = dynamic(
@@ -63,38 +68,59 @@ const Header = styled.header`
   align-content: center;
   background-color: #111;
 
-  // Menu Button Container
-  #menuButtonContainer {
-    height: 30px;
-    padding: 0px 25px 0px 25px;
-    margin-right: 20px;
+  // Logo Container
+  #logoContainer {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin-left: 80px;
+  }
+
+  // Logo Image
+  #logoContainer img {
+    width: 20%;
+    height: auto;
+    display: block;
+  }
+
+  // Buttons Container
+  #buttonsContainer {
+    width: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     align-content: center;
-    background-color: #262626;
-    border-radius: 200px 200px 200px 200px;
-    -moz-border-radius: 200px 200px 200px 200px;
-    -webkit-border-radius: 200px 200px 200px 200px;
+    margin-right: 80px;
   }
-`;
 
-// Information section
-const Information = styled.section`
-  width: 50%;
-  background-color: #171717;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: flex-start;
-  color: white;
+  // Menu Button Container
+  #menuButtonContainer {
+    height: 1.4%;
+    width: 1.4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 1px 0px 0px 10px;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  #menuButtonContainer:hover {
+    transform: scale(1.2);
+  }
+
+  #menuButtonContainer img {
+    width: 100%;
+    display: block;
+  }
 `;
 
 // Model Viwer section
 const ModelViwer = styled.section`
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   align-content: center;
@@ -112,13 +138,19 @@ export default class Apollo11Data extends React.Component {
 
   getModels(currentMode) {
     const models = {
-      model1: <Apollo113D />,
-      model2: <ApoloInterior3D />,
-      model3: <ApoloExclusa3D />,
-      model4: <Apollo113603D />,
-      model5: <Apolo11Casco3D />,
-      model6: <Apollo113603D />,
+      model1: <Moon3D />,
+      // Exterior
+      model2: <Apollo113D />,
+      // Interior
+      model3: <ApoloInterior3D />,
+      // Exclusa
+      model4: <ApoloExclusa3D />,
+      // Interior 360
+      model5: <Apollo113603D />,
+      // Casco
+      model6: <Apolo11Casco3D />,
       model7: <Apollo113603D />,
+      model8: <Apollo113603D />,
     };
     return models[currentMode];
   }
@@ -131,10 +163,17 @@ export default class Apollo11Data extends React.Component {
     return (
       <Apollo11DataContainer>
         <Header>
-          <ChangeModelMenu toggleModels={this.toggleModels}></ChangeModelMenu>
-          <div id="menuButtonContainer">Menu</div>
+          <div id="logoContainer" className="opacityIn">
+            <a></a>
+            <img alt="Blue Dot Logo" src="logos/BlueDotLogo.svg" />
+          </div>
+          <div id="buttonsContainer" className="opacityIn">
+            <ChangeModelMenu toggleModels={this.toggleModels}></ChangeModelMenu>
+            <a id="menuButtonContainer">
+              <img akt="Menu Image Button" src="icons/menu.svg" />
+            </a>
+          </div>
         </Header>
-        <Information>hola</Information>
         <ModelViwer>{this.getModels(this.state.currentMode)}</ModelViwer>
       </Apollo11DataContainer>
     );

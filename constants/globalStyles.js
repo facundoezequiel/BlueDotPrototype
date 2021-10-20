@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #171717;
   }
 
    // TopIn Animation
@@ -129,6 +129,9 @@ export const GlobalStyles = createGlobalStyle`
   
   @keyframes opacityIn {
     from {
+      opacity: 0%;
+    }
+    30% {
       opacity: 0%;
     }
     to {
