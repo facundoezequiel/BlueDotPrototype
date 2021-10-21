@@ -12,6 +12,7 @@
     "@google/model-viewer": "^1.8.0",
     "@react-three/fiber": "^7.0.6",
     "@sketchfab/viewer-api": "^1.10.1",
+    "blotter": "^2.1.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",

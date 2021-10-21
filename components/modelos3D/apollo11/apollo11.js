@@ -48,9 +48,25 @@ const Information = styled.div`
     margin: 0 auto;
     padding: 60px 0px 10px 0px;
     display: flex;
+    align-items: center;
+    align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  #titleInsigniaContainer {
+    width: 10%;
+    margin: 0px 25px 0px 0px;
+  }
+
+  #titleInsigniaContainer img {
+    width: 100%;
+    display: block;
+  }
+
+  #titleTextContainer {
+    width: auto;
   }
 
   #titleContainer h1 {
@@ -150,8 +166,13 @@ export default function Apollo3D() {
     <Apollo113DContainer>
       <Information>
         <div className="opacityIn" id="titleContainer">
-          <h1>MISIÓN APOLO 11</h1>
-          <h3>MÓDULO DE COMANDO</h3>
+          <div id="titleInsigniaContainer">
+            <img alt="Apolo 11 Insignia" src="./logos/Apolo11Insignia.png" />
+          </div>
+          <div id="titleTextContainer">
+            <h1>MISIÓN APOLO 11</h1>
+            <h3>MÓDULO DE COMANDO</h3>
+          </div>
         </div>
         <div className="opacityIn" id="textContainer">
           <p>

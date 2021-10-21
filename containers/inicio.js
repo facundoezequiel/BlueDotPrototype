@@ -1,25 +1,26 @@
 import styled from "styled-components";
-import dynamic from "next/dynamic";
-
-const Voyager3D = dynamic(() => import("../components/modelos3D/voyager"), {
-  ssr: false,
-});
-
-const Perseverance3D = dynamic(
-  () => import("../components/modelos3D/perseverance"),
-  {
-    ssr: false,
-  }
-);
 
 const InicioContainer = styled.section`
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  div {
+    width: 30%;
+    margin: 0 auto;
+  }
 `;
 
 export default function Inicio() {
   return (
     <InicioContainer>
-      <Perseverance3D></Perseverance3D>
+      <div>
+        <img alt="Blue Dot Logo" src="logos/BlueDotLogo.svg"></img>
+      </div>
     </InicioContainer>
   );
 }
